@@ -3,3 +3,7 @@ gemini_key.txt
 __pycache__/
 *.pyc
 .env
+images/
+*.jpg
+
+
