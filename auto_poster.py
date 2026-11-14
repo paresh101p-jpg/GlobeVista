@@ -48,13 +48,13 @@ def get_next_image():
 
     lines = []
     if queue_file.exists():
-        lines = [l.strip() for l in queue_file.read_text().splitlines() if l.strip()]
+        lines = [l.strip().lstrip('\ufeff') for l in queue_file.read_text(encoding='utf-8').splitlines() if l.strip().lstrip('\ufeff')]
 
     # Refill from backup if empty
     if not lines:
         print("Queue empty — refilling from backup...")
         if backup_file.exists():
-            backup = [l.strip() for l in backup_file.read_text().splitlines() if l.strip()]
+            backup = [l.strip().lstrip('\ufeff') for l in backup_file.read_text(encoding='utf-8').splitlines() if l.strip().lstrip('\ufeff')]
             if backup:
                 random.shuffle(backup)
                 lines = backup
