@@ -1,0 +1,5 @@
+fb_permanent_token.txt
+gemini_key.txt
+__pycache__/
+*.pyc
+.env
